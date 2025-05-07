@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Birthday Card</title>
     <style>
         body {
@@ -22,7 +23,9 @@
             position: relative;
             perspective: 1000px;
             cursor: pointer;
-            margin: 20px auto; /* เพิ่ม margin auto เพื่อจัดกึ่งกลาง */
+            /* margin: 20px auto; เพิ่ม margin auto เพื่อจัดกึ่งกลาง */
+            margin: 0 auto;
+            perspective: 1000px;
         }
 
         /* Media Queries สำหรับอุปกรณ์ต่างๆ */
@@ -218,6 +221,9 @@
             padding: 20px;
             box-sizing: border-box;
         } */
+        .card-content {
+            padding-bottom: 80px; /* ปรับตามความสูงของปุ่มและ margin */
+        }
 
         .card-back {
             background: #fff;
@@ -494,9 +500,10 @@
 
         .cake-gif {
             width: 300px;
-            height: 300px;
+            /* height: 300px; */
+            height: auto;
             object-fit: contain;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
         }
 
         .wish-text {
@@ -535,6 +542,9 @@
             background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             cursor: pointer;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .cake-gif {
@@ -583,6 +593,31 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* Mobile specific styles */
+        @media screen and (max-width: 480px) {
+            .cake-controls {
+                bottom: 10px;
+                gap: 10px;
+                flex-wrap: wrap; /* ให้ปุ่มสามารถขึ้นบรรทัดใหม่ได้ถ้าพื้นที่ไม่พอ */
+            }
+
+            .cake-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .wish-text {
+                font-size: 20px;
+                margin: 15px 0;
+            }
+
+            .cake-gif {
+                max-width: 200px;
+                margin-bottom: 15px;
+            }
         }
 
         .cake-btn:hover {
